@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+   <div id="block1">
+   <div>
+    <div id="iconplus"> <img src="image/plus.png" height="20px"> <img id="dot" src="image/dot.png" height="20px">
+    </div>
+    <div id="location"><img src="image/send.png" height="13px"> <p1 id="nameloc">Location</p1>  
+        <p2 id="datetime">Date, Time</P>
+    </div>
+    <div id="temperature"> 
+        <!--   <img id="img1"src="image/less than (2).png " alt="" height="20px"> -->
+        <p id="celcius">27°</p> 
+        <!-- <img id="img2"src="image/greater than (2).png" height="20px">   -->
+    </div>
+    <div id="weather">
+        <img  id="sun" src="image/sun 2.png" height="20px">
+        <img id="cloud" src="image/clouds.png">
+        <img id="rain" src="image/rainy.png">
+        <img id="snow" src="image/snow.png">
+        <img id="wind" src="image/wind.png">
+        <P id="condition">Sunny</P>
+    </div>
+     <div id ="image">
+        <img id="sunimage" src="image/image2.png" height="350px">
+        <img id="coludyimage" src="image/coludyimage.png" height="400px" width="300px">
+        <img id="snowimage" src="image/snowimage.png" height="350px" >
+        <img id="rainyimage" src="image/rainimagee.png" height="300px">
+    </div> 
+     </div>
+   </div>
+     <div id="para">
+        <div id="box1">
+        <div id="area1"> 
+            <h4>Welcome back Isabella!</h4>
+            <p>Check out today's weather information</p>
+        </div>
+        <div id="area2">
+            <div id="icon"><img src="image/icon.png" height="20px"></div>
+            <div id="logo"><img src="image/logo.png" height="50px"></div>
+        </div>    
+        </div>
+        <div id="box2">
+            <input id="name" oninput="complete()"  type="text"  placeholder="Enter city name" >
+            <input id ="button"  onclick="getdata()" type="submit"value="Check Weather" />
+            <div id="suggestions">
+                    <div onclick="selectcity('mandi')">mandi</div>
+                    <div onclick="selectcity('bilaspur')">bilaspur</div>
+                    <div onclick="selectcity('shimla')">shimla</div>
+                    <div onclick="selectcity('hamirpur')">hamirpur</div>
+                
+            </div>
+            <div id="loadingimg"></div>
+        </div>
+        <div id="box3">
+            <h4>More details of today's weather</h4>
+        </div>
+        <div id="box4">
+            <div id="column1">
+                <h6>Humidity</h6>
+                <img src="image/humidity.png" >
+                <div id="number1"></div>
+            </div>
+            <div id="column2">
+                <h6>Wind</h6>
+                <img src="image/wind.png">
+                <div id="number2"></div>
+            </div>
+            <div id="column3">
+                <h6>Precipitation</h6>
+                <img src="image/precipitation.png">
+                <div id="number3"></div>
+            </div>
+        </div>
+        <div id="box5">
+            <div id="column4">
+                <h6>UV Index</h6>
+                <img src="image/sun.png">
+                <div id="number4"></div>
+            </div>
+            <div id="column5">
+                <h6>Feels like</h6>
+                <img src="image/feels.png">
+                <div id="number5"></div>
+            </div>
+            <div id="column6">
+                <h6>Visibility</h6>
+                <img src="image/rain.png">
+                <div id="number6"></div>
+            </div>
+        </div>
+     </div>
+   </div>
+</div>
+    <script src="index.js"></script>
+</body>
+</html>
+
