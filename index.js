@@ -11,7 +11,7 @@ function getdata(){
   const cityname = input.value
   document.getElementById("loadingimg").style.display = 'flex';
   fetch(
-    `http://api.weatherapi.com/v1/current.json?key=6e1125014a674ae5a1575713241110&q=${cityname}`
+    `https://api.weatherapi.com/v1/current.json?key=6e1125014a674ae5a1575713241110&q=${cityname}`
   )
     .then((response) => response.json())
     .then((data) => {
