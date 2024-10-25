@@ -218,15 +218,23 @@
     100% { transform: rotate(360deg); }
 }
 #suggestions {
+    display: none;
+    flex-direction: column;
+    position: absolute;
     border: 1px solid #ccc;
     background-color: white;
     height: 100px;
+    width : 60%;
     margin-left: 20%;
     margin-right: 10%;
+    z-index: 10;
 }
 #suggestions div {
     padding: 8px;
     cursor: pointer;
+}
+#suggestions div:hover {
+    background-color: #f0f0f0; 
 }
 #loadingimg{
     margin-top: 0%;
