@@ -1,4 +1,4 @@
-
+let input = document.getElementById("name")
 let button = document.getElementById("button");
 let humidity = document.getElementById("number1")
 let wind = document.getElementById("number2")
@@ -72,29 +72,52 @@ function  weathericon(condition) {
     document.getElementById("sunimage").style.display = "flex";  
   }
 }
-
-// let suggestions = document.getElementById("suggestions")
-// let cities = []
-// fetch("cities.json")
-//   .then(response => response.json())
-//   .then(data => {cities = data })
-//   .catch(error => {
-//     console.error('Error loading city data:', error)
-//   });
-document.getElementById("suggestions").style.display = "none";
-let input = document.getElementById("name");
-let city = cities.json
-function complete() {
-  let cityname = input.value 
+let cities = []
+fetch(`https://raw.githubusercontent.com/lutangar/cities.json/refs/heads/master/cities.json`)
+.then(response => response.json())
+.then(data =>{
+  cities = data 
+})
+.catch ((error) => {
+  alert("city not found.Please try again.",error)
+})
+function complete(){
+  let input = document.getElementById("name")
+  let cityname = input.value.toLowerCase() 
+  let suggestionbox = document.getElementById("suggestions")
+  suggestionbox.innerHTML = ""; 
   if (cityname.length >= 2) { 
-  document.getElementById("suggestions").style.display = "flex";
-  }
-}
-function selectcity(cityname) {
-  input.value = cityname; 
-  document.getElementById("suggestions").style.display  = "none";
-  getdata(); 
-} 
+    let matche = []
+    for (let i = 0; i < cities.length; i++) {
+      if(cities[i].name.toLowerCase().includes(cityname)){
+        matche.push(cities[i])
+        if(matche.length === 3) break;
+      }
+      }
+      if (matche.length > 0){
+        suggestionbox.style.display = "flex";
+        for(let i = 0; i < matche.length; i++){
+          let div = document.createElement("div")
+          div.textContent = matche[i].name;
+          div.style.height = "15px"
+          div.style.display = "block";
+          div.onclick = function(){
+            selectcity(matche[i].name);
+           }
+           suggestionbox.appendChild(div);
+          }
+        } else {
+          suggestionbox.style.display = 'none'
+        }
+      }
+      }
+     function selectcity(cityname) {
+      let input = document.getElementById("name");
+     input.value = cityname; 
+     document.getElementById("suggestions").style.display  = "none";
+      getdata(); 
+ }
+
 
 
  
